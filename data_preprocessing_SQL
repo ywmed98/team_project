@@ -1,5 +1,5 @@
 -- ### BigQuery from MIMIC-IV 
--- ### 홍지은 선생님 Creatinine, Glucose, Hb, Lactacte, Plt, Sodium, WBC--
+-- ### 221103 홍지은 선생님 Creatinine, Glucose, Hb, Lactacte, Plt, Sodium, WBC--
 
 select itemid, label from physionet-data.mimic_hosp.d_labitems
   where lower(label) like '%creatinine%' --Creatinine
