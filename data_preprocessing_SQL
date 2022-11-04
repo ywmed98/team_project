@@ -1,0 +1,39 @@
+-- ### BigQuery from MIMIC-IV 
+-- ### 홍지은 선생님 Creatinine, Glucose, Hb, Lactacte, Plt, Sodium, WBC--
+
+select itemid, label from physionet-data.mimic_hosp.d_labitems
+  where lower(label) like '%creatinine%' --Creatinine
+        OR lower(label) like '%hemoglobin%' --Hemoglobin
+        OR lower(label) like '%platelet%' --Platelet Count
+        OR lower(label) like '%white%' --White Blood Cells
+        OR lower(label) like '%sodium%' OR lower(label) like '%na%' --sodium
+        OR lower(label) like '%glucose%' OR lower(label) like '%sugar%' --Glucose
+        OR lower(label) like '%lactate%' OR lower(label) like '%lactic acid%' --lactate
+
+select valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (52024, 50912, 52546, 51977, 51081) --creatinine IN
+
+select valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50809,	52027,	50931,	52569,	51981,	51478) --glucose IN
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50811, 50855, 51640,	51645,	51222,	52157) --52129 제외, hemoglobin 
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50813,	52442) --lactate IN
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50824,	52455,	50983,	52623) --Sodium IN 
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (51704,	51240, 51265) --51240 제외, platelet 
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (51755,	51756,	51301) -- WBC IN
