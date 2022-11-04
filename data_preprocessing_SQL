@@ -1,4 +1,5 @@
--- ### BigQuery from MIMIC-IV 
+-- # BigQuery from MIMIC-IV 
+-- ### chartevent 말고 labevent에서 feature 있는지 확인
 -- ### 221103 홍지은 선생님 Creatinine, Glucose, Hb, Lactacte, Plt, Sodium, WBC--
 
 select itemid, label from physionet-data.mimic_hosp.d_labitems
@@ -37,3 +38,22 @@ select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments
 select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
   from physionet-data.mimic_hosp.labevents
   where itemid in (51755,	51756,	51301) -- WBC IN
+  
+--### 부가적으로 FiO2, PaO2 관련 itemid 검색 --
+select distinct label from physionet-data.mimic_hosp.d_labitems
+  where category like 'Blood Gas'
+--:: O2 Flow Oxygen Oxygen Saturation pO2 Temperature 
+
+select itemid, label from physionet-data.mimic_hosp.d_labitems
+  where lower(label) like '%oxygen%' OR lower(label) like '%o2%' --oxygen
+        OR lower(label) like '%temper%' --temperature
+        
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50815, 50816, 50817, 50821, 52042, 50832) -- oxygen
+
+select itemid, valuenum, valueuom, ref_range_lower, ref_range_upper, comments	
+  from physionet-data.mimic_hosp.labevents
+  where itemid in (50825) -- temperature IN
+
+
