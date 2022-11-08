@@ -3,7 +3,7 @@
 feature_keys = ['FiO2', 'HR', 'PaO2', 'SBP', 'Temperature','Creatinine','Glucose', 'Hb', 'Lactate', 'Plt','Sodium' ,'WBC',
 ### 추가 features ####
 'DBP', 'MAP', 'RESP', 'Chloride', 'Hct', 'PCO2', 'Potassium', 'PH', 'Anion Gap', 'Bilirubin']
-##-------------------------------------------------------------
+
 EXTRACT_FEATURE_CODES_VS = dict({
     ‘226754’: ‘FiO2’, ‘223835’: ‘FiO2’, ‘227010’: ‘FiO2’, ‘229280’: ‘FiO2’, ‘229841’: ‘FiO2’,
     ‘220045’: ‘HR’, ‘220046’: ‘HR’, ‘226764’: ‘HR’, ‘227018’: ‘HR’,
@@ -33,15 +33,15 @@ EXTRACT_FEATURE_CODES_LAB = dict({
     ‘220546’: ‘WBC’,
     ‘51755’: ‘WBC’, ‘51756’: ‘WBC’, ‘51301’: ‘WBC’
     ######### 새로운 features ############
-    '50902': 'Chloride',
+    '50902': 'Chloride', '50806': 'Chloride',
     '50810': 'Hct', '51221': 'Hct',
     '50810': 'PCO2',
-    '50822': 'Potassium', '50971': 'Potassium',
+    '50822': 'Potassium', '50971': 'Potassium', '845825': 'Potassium',
     '50820': 'PH',
-    '50868': 'Anion Gap',
+    '50868': 'Anion Gap', '769895': 'Anion Gap', '52456': 'Anion Gap', 
     '50885': 'Bilirubin'})
 
-EXTRACT_FEATURE_CODES_NORMAL = dict({
+EXTRACT_FEATURE_CODES_NORMAL = dict({ #outlier 범위 - medical knowledge에 기반하여 계산
         'FiO2': [10, 100],
         'HR': [30, 200],
         'PaO2': [50, 200],
@@ -57,15 +57,15 @@ EXTRACT_FEATURE_CODES_NORMAL = dict({
         'DBP':[30, 200],
         'MAP':[33, 216],
         'RESP':[0, 35],
-        'Chloride':[,],
-        'Hct':[,], 
-        'PCO2':[,],
-        'Potassium':[,],
-        'PH':[,],
-        'Anion Gap':[,],
-        'Bilirubin':[,]
+        'Chloride':[70, 130],
+        'Hct':[10, 50], 
+        'PCO2':[5, 100],
+        'Potassium':[1.0, 10.0],
+        'PH':[5.5, 8.0],
+        'Anion Gap':[5, 50],
+        'Bilirubin':[0.1, 10]
 })
-NORMAL_VALUE = dict({
+NORMAL_VALUE = dict({ #missing value 대체값
         'FiO2': 40,
         'HR': 75, #(50+100)/2
         'PaO2': 87.5, #(75+100)/2
@@ -82,11 +82,11 @@ NORMAL_VALUE = dict({
         'DBP': 90, #(80+100)/2 
         'MAP': 98, # (115 + 2*90) / 
         'RESP': 13, 
-        'Chloride': 102, 
+        'Chloride': 102, #(96+108) / 2
         'Hct': 34.5, #(34+45)/2
-        'PCO2': xxx, 
-        'Potassium': xxx, 
-        'PH': xxx, 
-        'Anion Gap': xxx, 
-        'Bilirubin': xxx
+        'PCO2': 40, #(35+45)/2
+        'Potassium': 4.5, #(3.5+5.4)/2
+        'PH': 7.4, #(7.35 + 7.45) / 2
+        'Anion Gap': 14, #8+20/2
+        'Bilirubin': 0.8 #0+1.5/2
 })
