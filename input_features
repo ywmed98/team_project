@@ -1,0 +1,92 @@
+## input features in phython
+
+feature_keys = ['FiO2', 'HR', 'PaO2', 'SBP', 'Temperature','Creatinine','Glucose', 'Hb', 'Lactate', 'Plt','Sodium' ,'WBC',
+### 추가 features ####
+'DBP', 'MAP', 'RESP', 'Chloride', 'Hct', 'PCO2', 'Potassium', 'PH', 'Anion Gap', 'Bilirubin']
+##-------------------------------------------------------------
+EXTRACT_FEATURE_CODES_VS = dict({
+    ‘226754’: ‘FiO2’, ‘223835’: ‘FiO2’, ‘227010’: ‘FiO2’, ‘229280’: ‘FiO2’, ‘229841’: ‘FiO2’,
+    ‘220045’: ‘HR’, ‘220046’: ‘HR’, ‘226764’: ‘HR’, ‘227018’: ‘HR’,
+    ‘220224’: ‘PaO2’, ‘227039’: ‘PaO2’, ‘227516’: ‘PaO2’,
+    ‘220050’: ‘SBP’ ,‘220179’: ‘SBP’, ‘224167’: ‘SBP’, ‘227243’: ‘SBP’, ‘228152’: ‘SBP’,
+    ‘223762’: ‘Temperature’, ‘226329’: ‘Temperature’, ‘227632’: ‘Temperature’, ‘227634’: ‘Temperature’,
+    ‘50825’: ‘Temperature’,
+    ####### 새로운 features ##########
+   '223761': 'TEMP_F',
+   '225310': 'DBP', '220051': 'DBP', '220180': 'DBP',
+   '225312': 'MAP', '220052': 'MAP', '220181': 'MAP',
+   '220210': 'RESP', '224690': 'RESP'
+    })
+EXTRACT_FEATURE_CODES_LAB = dict({
+    ‘220615’: ‘Creatinine’, ‘229761’: ‘Creatinine’,
+    ‘52024’: ‘Creatinine’, ‘50912’: ‘Creatinine’, ‘52546’: ‘Creatinine’, ‘51977’: ‘Creatinine’,  ‘51081’: ‘Creatinine’,
+    ‘220621’: ‘Glucose’, ‘225664’: ‘Glucose’, ‘226537’: ‘Glucose’,
+    ‘50809’: ‘Glucose’, ‘52027’: ‘Glucose’, ‘50931’: ‘Glucose’, ‘52569’: ‘Glucose’, ‘51981’: ‘Glucose’, ‘51478’: ‘Glucose’,
+    ‘220228’: ‘Hb’,
+    ‘50811’: ‘Hb’, ‘50855’: ‘Hb’, ‘51640’: ‘Hb’, ‘51645’: ‘Hb’, ‘51222’: ‘Hb’, ‘52157’: ‘Hb’,
+    ‘225668’: ‘Lactate’,
+    ‘50813’: ‘Lactate’, ‘52442’: ‘Lactate’,
+    ‘227457’: ‘Plt’,
+    ‘51704’: ‘Plt’, ‘51265’: ‘Plt’,
+    ‘220645’: ‘Sodium’, ‘226534’: ‘Sodium’,
+    ‘50824’: ‘Sodium’, ‘52455’: ‘Sodium’, ‘50983’: ‘Sodium’, ‘52623’: ‘Sodium’,
+    ‘220546’: ‘WBC’,
+    ‘51755’: ‘WBC’, ‘51756’: ‘WBC’, ‘51301’: ‘WBC’
+    ######### 새로운 features ############
+    '50902': 'Chloride',
+    '50810': 'Hct', '51221': 'Hct',
+    '50810': 'PCO2',
+    '50822': 'Potassium', '50971': 'Potassium',
+    '50820': 'PH',
+    '50868': 'Anion Gap',
+    '50885': 'Bilirubin'})
+
+EXTRACT_FEATURE_CODES_NORMAL = dict({
+        'FiO2': [10, 100],
+        'HR': [30, 200],
+        'PaO2': [50, 200],
+        'SBP': [40, 250],
+        'Temperature': [30, 45],
+        'Creatinine': [0.2, 100],
+        'Glucose': [30, 1000],
+        'Hb': [5, 20],
+        'Lactate': [0.5, 2.5],
+        'Plt': [10, 500],
+        'Sodium': [90, 170],
+        'WBC': [1, 30]
+        'DBP':[30, 200],
+        'MAP':[33, 216],
+        'RESP':[0, 35],
+        'Chloride':[,],
+        'Hct':[,], 
+        'PCO2':[,],
+        'Potassium':[,],
+        'PH':[,],
+        'Anion Gap':[,],
+        'Bilirubin':[,]
+})
+NORMAL_VALUE = dict({
+        'FiO2': 40,
+        'HR': 75, #(50+100)/2
+        'PaO2': 87.5, #(75+100)/2
+        'SBP': 115, #(90+140)/2 = 115
+        'Temperature': 36.65, #(36.1+37.2)/2
+        'Creatinine': 1.0, #(0.7+1.0)/2
+        'Glucose': 100, #(60+140)/2
+        'Hb': 15.0, #(13.8+17.2)/2
+        'Lactate': 1.35, #(0.5+2.2)/2 = 1.35
+        'Plt': 270, #(140+400)/2
+        'Sodium': 140, #(135+145)/2
+        'WBC': 7.5 #(5+10)/2
+        'WBC': 7.5, #(5+10)/2
+        'DBP': 90, #(80+100)/2 
+        'MAP': 98, # (115 + 2*90) / 
+        'RESP': 13, 
+        'Chloride': 102, 
+        'Hct': 34.5, #(34+45)/2
+        'PCO2': xxx, 
+        'Potassium': xxx, 
+        'PH': xxx, 
+        'Anion Gap': xxx, 
+        'Bilirubin': xxx
+})
